@@ -1,0 +1,29 @@
+/* index.css */
+
+/* Styling for the profile container */
+.profile-container {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the headings */
+.profile-container h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.profile-container h2 {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.profile-container h3 {
+  font-size: 18px;
+  color: #777;
+}

@@ -1,40 +1,45 @@
+
 import {useState} from 'react'
-
 const App = () => {
+  const [fullname, setfullname] = useState("")
+  const [email, setemail] = useState("")
 
-    const [name, setname] = useState("")
-    const [gender, setgender] = useState("")
-    const [vote, setvote] = useState("eligible")
-    
-    const submitHandler = (e) => {
-        e.preventDefault()
-        const user = {
-            name,
-            gender,
-            vote
-        }
-        console.log(user)
-    }
+  const SubmitHandler = (e) => {
+    e.preventDefault()
+    console.log("fullname is------>", fullname, "and", "email is ---------->", email)
+  }
 
   return (
     <div>
-        <form onSubmit={submitHandler}>
-            <input onChange={(e) => setname(e.target.value)} value={name} type="text" placeholder='full name'/> <br /><br />
-            
-            <input type="radio" name='gender' checked= {gender === "male" && true}
-            onChange={(e) => e.target.checked && setgender("male")} /> male <br /><br />
-
-            <input type="radio" name='gender' checked= {gender === "female" && true}
-            onChange={(e) => e.target.checked && setgender("female")} /> female <br /><br />
-
-            <input type="checkbox" onChange={(e) => e.target.checked ? setvote("eligible") : setvote("not eligible")} 
-            checked={vote === "eligible" ? true : false}/> "Eligible or Not Eligible for Vote ?" 
-
-            <br /> <br />
-            <button>Submit</button>
-        </form>
+      <form onSubmit={SubmitHandler}>
+        <input onChange={(e) => {setfullname(e.target.value)}} value={fullname} type="text" placeholder='full name'/> <br /> <br />
+        <input onChange={(e) => {setemail(e.target.value)}} value={email} type="text" placeholder=' email'/> <br /> <br />
+        <button>Submit</button>
+      </form>
     </div>
   )
 }
 
 export default App
+
+// import React, { useState } from 'react';
+
+// const app = () => {
+//   const [name, setname] = useState('');
+
+//   const handleChange = (e) => {
+//     setname(e.target.value);
+//     console.log(e.target.value); // har letter ke baad print hoga
+//   };
+
+//   return (
+//     <input
+//       type="text"
+//       value={name}
+//       onChange={handleChange}
+//       placeholder="Type something..."
+//     />
+//   );
+// }
+
+// export default app
