@@ -1,0 +1,240 @@
+import { useState } from 'react'
+import './index.css'
+
+function App() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [bio, setBio] = useState('')
+  const [saveChanges, setSaveChanges] = useState("save")
+  const [showSuccess, setShowSuccess] = useState("false")
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+  if(saveChanges === 'save') {
+    const user = {
+      name,
+      email,
+      bio,
+      saveChanges
+    }
+    console.log(user)
+  } else {
+    setShowSuccess(false)
+  }
+  }
+
+  return (
+    <>
+      
+      <form onSubmit={submitHandler}>
+
+        <input value={name} onChange={(e) => setName(e.target.value)}
+        type="text" placeholder='Enter Name'/> <br /><br />
+
+        <input value={email} onChange={(e) => setEmail(e.target.value)}
+       type="text" placeholder='Enter Email'/><br /><br />
+
+        <input value={bio} onChange={(e) => setBio(e.target.value)}
+        type="text" placeholder='Enter Bio'/><br /> <br />
+
+        <input 
+        type="checkbox" onChange={(e) => setSaveChanges (e.target.checked ? 'save': "not save")}
+       value={saveChanges} checked={saveChanges === "save"}/>Save Changes <br /><br />
+
+        <button>Save</button>
+      </form>
+
+      {showSuccess && <p> Changes saved </p>}
+
+      <h2>Preview</h2>
+      <p>name: {name} </p>
+      <p>email {email} </p>
+      <p>bio {bio} </p>
+
+    </>
+  )
+}
+
+export default App
+
+
+import React, { useState, useEffect } from 'react';
+
+const ProfileEditor = () => {
+  const originalData = {
+    name: 'John Doe',
+    email: 'john@example.com',
+    bio: 'Software Developer'
+  };
+
+  console.log(originalData)
+  const [profile, setProfile] = useState(originalData);
+  const [saved, setSaved] = useState(false);
+
+  const isChanged = JSON.stringify(profile) !== JSON.stringify(originalData);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProfile(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    setSaved(false);
+  };
+
+  const handleSave = () => {
+    if (isChanged) {
+      console.log('Updated Profile:', profile);
+      setSaved(true);
+    }
+  };
+
+  return (
+    <div style={{ maxWidth: '400px', margin: 'auto' }}>
+      <h2>Profile Editor</h2>
+      <label>Name:</label>
+      <input
+        type="text"
+        name="name"
+        value={profile.name}
+        onChange={handleChange}
+      /><br />
+
+      <label>Email:</label>
+      <input
+        type="email"
+        name="email"
+        value={profile.email}
+        onChange={handleChange}
+      /><br />
+
+      <label>Bio:</label>
+      <textarea
+        name="bio"
+        value={profile.bio}
+        onChange={handleChange}
+      /><br />
+
+      <button onClick={handleSave} disabled={!isChanged}>
+        Save Changes
+      </button>
+
+      {saved && <p>✓ Changes saved</p>}
+    </div>
+  );
+};
+
+export default ProfileEditor;
+
+import React, { useState } from "react";
+
+const App = () => {
+  const initalState = {
+    name: "john",
+    email: "john@doe.com",
+    bio: "1234567890",
+  };
+
+  const [formData, setFormData] = React.useState(initalState);
+
+  const [isChanged,setIsChanged] = useState(JSON.stringify(formData) == JSON.stringify(initalState));
+  console.log(isChanged);
+
+
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    console.log(formData)
+    setIsChanged(false);
+  }
+
+
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Name"
+        value={formData.name}
+        onChange={(e) => setFormData({ ...initalState, name: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Email"
+        value={formData.email}
+        onChange={(e) => setFormData({ ...initalState, email: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Bio"
+        value={formData.bio}
+        onChange={(e) => setFormData({ ...initalState, bio: e.target.value })}
+      />
+
+      <button disabled={!isChanged} >Submit</button>
+    </form>
+  );
+};
+
+export default App;
+
+mera code 
+
+import { useState } from 'react'
+import './index.css'
+
+function App() {
+  const [name, setName] = useState('john doe')
+  const [email, setEmail] = useState('john@doe.com')
+  const [bio, setBio] = useState('i am a developer')
+  const [saveChanges, setSaveChanges] = useState("save")
+  const [showSuccess, setShowSuccess] = useState(false)
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+  if(saveChanges === 'save') {
+    const user = {
+      name,
+      email,
+      bio,
+      saveChanges
+    }
+    console.log(user)
+    setShowSuccess(true)
+  } else {
+    setShowSuccess(false)
+  }
+  }
+
+  return (
+    <>
+      
+      <form onSubmit={submitHandler}>
+
+        <input value={name} onChange={(e) => setName(e.target.value)}
+        type="text" placeholder='Enter Name'/> <br /><br />
+
+        <input value={email} onChange={(e) => setEmail(e.target.value)}
+       type="text" placeholder='Enter Email'/><br /><br />
+
+        <input value={bio} onChange={(e) => setBio(e.target.value)}
+        type="text" placeholder='Enter Bio'/><br /> <br />
+
+        <input 
+        type="checkbox" onChange={(e) => setSaveChanges (e.target.checked ? 'save': "not save")}
+       value={saveChanges} checked={saveChanges === "save"}/>Save Changes <br /><br />
+
+        <button disabled={saveChanges !== "save"}>Save</button>
+      </form>
+
+      {showSuccess && <p> Changes saved </p>}
+
+      <h2>Preview</h2>
+      <p>name: {name} </p>
+      <p>email {email} </p>
+      <p>bio {bio} </p>
+
+    </>
+  )
+}
+
+export default App

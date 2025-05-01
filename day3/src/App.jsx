@@ -23,6 +23,7 @@ const App = () => {
         <input type="radio" name='gender' checked= {gender === "male" && true}
         onChange={(e) => e.target.checked && setGender("male")}
         /> Male <br /><br />
+        
         <input type="radio" name='gender' checked= {gender === "female" && true}
         onChange={(e) => e.target.checked && setGender("female")}
         /> Female <br /><br />
