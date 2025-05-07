@@ -1,6 +1,8 @@
 import React from "react";
 
-const SignIn = ({settoggler}) => {
+const SignIn = (props) => {
+  const {toggler, settoggler} = props
+  // console.log(props)
   return (
     <div className="w-screen min-h-screen bg-gray-800 text-white flex items-center justify-center p-4 overflow-auto">
       <form
@@ -41,7 +43,8 @@ const SignIn = ({settoggler}) => {
         <small className="block text-center mt-4">
           Don't have an account?{" "}
           <button
-              onClick={() => settoggler(true)}
+              // onClick={() => settoggler(true)}
+              onClick={() => settoggler(!toggler)}
             type="button"
             className="text-blue-400 hover:underline focus:outline-none"
           >

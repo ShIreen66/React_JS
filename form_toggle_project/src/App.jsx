@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
+import React, { useState } from "react";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
+import Users from "./components/Users";
 
 const App = () => {
-  const [toggler, settoggler] = useState(false); // false = Sign In, true = Sign Up
+  const [toggler, settoggler] = useState(true); // false = Sign In, true = Sign Up
 
   return (
-    
-    <div className="w-screen min-h-screen overflow-x-hidden">
-
-        {toggler ? (<SignUp settoggler={settoggler} />) : (<SignIn settoggler={settoggler} />)}  
+    <main className="w-screen min-h-screen flex overflow-auto ">
       
-    </div>
+      <div className="w-[70%] p-0 overflow-auto flex items-center justify-center bg-gray-800">
+        {toggler ? (
+          <SignUp toggler={toggler} settoggler={settoggler} />
+        ) : (
+          <SignIn toggler={toggler} settoggler={settoggler} />
+        )}
+      </div>
+
+      
+      <Users />
+    </main>
   );
 };
 

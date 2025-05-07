@@ -1,6 +1,8 @@
 import React from 'react'
 
-const SignUp = ({settoggler}) => {
+const SignUp = (props) => {
+  const {toggler, settoggler} = props
+  // console.log(props)
   return (
     <div className="w-screen min-h-screen bg-gray-800 text-white flex items-center justify-center p-4 overflow-x-hidden">
 
@@ -52,7 +54,9 @@ const SignUp = ({settoggler}) => {
           <small className="block text-center mt-4">
             Already have an account?{' '}
             <button
-              onClick={() => settoggler(false)}
+              // onClick={() => settoggler(false)}
+              
+              onClick={() => settoggler(!toggler)}
               type="button"
               className="text-blue-400 hover:underline focus:outline-none"
             >
