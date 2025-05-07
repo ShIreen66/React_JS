@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const SignIn = () => {
+const SignIn = ({settoggler}) => {
   return (
-    <div className="w-screen min-h-screen bg-gray-800 text-white flex items-center justify-center p-4 overflow-x-hidden">
+    <div className="w-screen min-h-screen bg-gray-800 text-white flex items-center justify-center p-4 overflow-auto">
       <form
         action=""
         className="bg-gray-900 p-8 rounded-lg shadow-md w-full max-w-md space-y-6"
       >
-        <h2 className="text-2xl font-semibold text-center">Sign In</h2>
+        <h2 className="text-5xl font-semibold text-center">Get back to the journey</h2>
 
         {/* Email */}
         <div>
@@ -37,10 +37,11 @@ const SignIn = () => {
           Sign In
         </button>
 
-        {/* Switch to Sign In */}
+        {/* Switch to Sign Up */}
         <small className="block text-center mt-4">
-          Don't have an account?{' '}
+          Don't have an account?{" "}
           <button
+              onClick={() => settoggler(true)}
             type="button"
             className="text-blue-400 hover:underline focus:outline-none"
           >
@@ -49,7 +50,7 @@ const SignIn = () => {
         </small>
       </form>
     </div>
-    )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;
