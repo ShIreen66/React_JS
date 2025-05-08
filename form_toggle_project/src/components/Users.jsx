@@ -4,11 +4,11 @@ const Users = () => {
       <h2 className="text-xl font-semibold mb-4">Registered Users</h2>
       <ul className="space-y-4">
         <li className="relative bg-gray-800 p-4 rounded shadow flex flex-col gap-1">
-        <span className="text-lg">John Doe</span>
-        <small className="text-gray-400">john@mail.com</small>
-        <button className="absolute top-1/2 right-2 transform -translate-y-1/2 text-sm text-red-400 hover:text-red-500 hover:underline cursor-pointer">
+          <span className="text-lg">John Doe</span>
+          <small className="text-gray-400">john@mail.com</small>
+          <button className="absolute top-1/2 right-2 transform -translate-y-1/2 text-sm text-red-400 hover:text-red-500 hover:underline cursor-pointer">
             Delete
-        </button>
+          </button>
         </li>
       </ul>
     </div>
