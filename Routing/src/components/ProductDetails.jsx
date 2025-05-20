@@ -1,0 +1,20 @@
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
+const ProductDetails = () => {
+
+    const navigate = useNavigate()
+  return (
+    <div>
+        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, aspernatur.</h1>
+        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, aspernatur.</h1>
+        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, aspernatur.</h1>
+        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, aspernatur.</h1>
+        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, aspernatur.</h1>
+        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit, aspernatur.</h1>
+        <button onClick={() => {navigate(-1)}}>Go Back</button>
+    </div>
+  )
+}
+
+export default ProductDetails
